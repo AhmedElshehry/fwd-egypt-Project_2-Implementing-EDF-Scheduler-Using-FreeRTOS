@@ -1,2 +1,2 @@
-# fwd-egypt-Project_2-Implementing-EDF-Scheduler-Using-FreeRTOS
+# fwd-egypt_Project_2_Implementing_EDF_Scheduler_Using_FreeRTOS
 fwd egypt Project_2 Implementing EDF Scheduler Using FreeRTOS
