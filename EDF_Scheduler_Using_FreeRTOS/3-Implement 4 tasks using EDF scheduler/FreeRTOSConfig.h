@@ -29,6 +29,7 @@
 #define FREERTOS_CONFIG_H
 
 #include <lpc21xx.h>
+#include "GPIO.h"
 
 /*-----------------------------------------------------------
  * Application specific definitions.
@@ -41,11 +42,21 @@
  *
  * See http://www.freertos.org/a00110.html
  *----------------------------------------------------------*/
+ 
+ /* configration deadline of ideatask  by way change value  INIT_IDLEPeriod */
  #define INIT_IDLEPeriod         150
+ /* configure EDF scheduler to work must be macro equal 1 */
 #define configUSE_EDF_SCHEDULER   1
+
+/* configure dynamic allocation   1 */
+#define configSUPPORT_DYNAMIC_ALLOCATION 1
+
+/* configure size queue  0 */
+#define configQUEUE_REGISTRY_SIZE 	     0
+
 #define configUSE_PREEMPTION		 1
-#define configUSE_IDLE_HOOK			1
-#define configUSE_TICK_HOOK			1
+#define configUSE_IDLE_HOOK		   1
+#define configUSE_TICK_HOOK			 1
 #define configCPU_CLOCK_HZ			( ( unsigned long ) 60000000 )	/* =12.0MHz xtal multiplied by 5 using the PLL. */
 #define configTICK_RATE_HZ			( ( TickType_t ) 1000 )
 #define configMAX_PRIORITIES		( 4 )
@@ -56,7 +67,7 @@
 #define configUSE_16_BIT_TICKS		0
 #define configIDLE_SHOULD_YIELD		1
 
-#define configQUEUE_REGISTRY_SIZE 	0
+
 
 /* Co-routine definitions. */
 #define configUSE_CO_ROUTINES 		0
@@ -67,12 +78,72 @@ to exclude the API function. */
 
 #define INCLUDE_vTaskPrioritySet		1
 #define INCLUDE_uxTaskPriorityGet		1
-#define INCLUDE_vTaskDelete				1
+#define INCLUDE_vTaskDelete				  1
 #define INCLUDE_vTaskCleanUpResources	0
-#define INCLUDE_vTaskSuspend			1
-#define INCLUDE_vTaskDelayUntil			1
-#define INCLUDE_vTaskDelay				1
+#define INCLUDE_vTaskSuspend			    1
+#define INCLUDE_vTaskDelayUntil		   	1
+#define INCLUDE_vTaskDelay				    1
 
+/*trace hooks*/
+/* Run time configuration */
+#define configUSE_APPLICATION_TASK_TAG    1
+
+
+#define traceTASK_SWITCHED_OUT()  do\
+							{\
+                            if((int)pxCurrentTCB->pxTaskTag == 1)\
+						    {\
+                             GPIO_write(PORT_0, PIN2 , PIN_IS_LOW);\
+							}\
+							else if((int)pxCurrentTCB->pxTaskTag == 2)\
+							{\
+                             GPIO_write(PORT_0, PIN3 , PIN_IS_LOW);\
+							}\
+                            else if((int)pxCurrentTCB->pxTaskTag == 3)\
+							{\
+                             GPIO_write(PORT_0, PIN4 , PIN_IS_LOW);\
+							}\
+                            else if((int)pxCurrentTCB->pxTaskTag == 4)\
+							{\
+                             GPIO_write(PORT_0, PIN5 , PIN_IS_LOW);\
+							}\
+                            else if((int)pxCurrentTCB->pxTaskTag == 5)\
+							{\
+                             GPIO_write(PORT_0, PIN6 , PIN_IS_LOW);\
+							}\
+                            else if((int)pxCurrentTCB->pxTaskTag == 6)\
+							{\
+                             GPIO_write(PORT_0, PIN7 , PIN_IS_LOW);\
+							}\
+							}while(0)
+														
+#define traceTASK_SWITCHED_IN()    do\
+							{\
+                            if((int)pxCurrentTCB->pxTaskTag == 1)\
+							{\
+                             GPIO_write(PORT_0, PIN2 , PIN_IS_HIGH);\
+							}\
+							else if((int)pxCurrentTCB->pxTaskTag == 2)\
+							{\
+                             GPIO_write(PORT_0, PIN3 , PIN_IS_HIGH);\
+							}\
+                            else if((int)pxCurrentTCB->pxTaskTag == 3)\
+							{\
+                             GPIO_write(PORT_0, PIN4 , PIN_IS_HIGH);\
+							}\
+                            else if((int)pxCurrentTCB->pxTaskTag == 4)\
+							{\
+                             GPIO_write(PORT_0, PIN5 , PIN_IS_HIGH);\
+							}\
+                            else if((int)pxCurrentTCB->pxTaskTag == 5)\
+							{\
+                             GPIO_write(PORT_0, PIN6 , PIN_IS_HIGH);\
+							}\
+                              else if((int)pxCurrentTCB->pxTaskTag == 6)\
+							{\
+                             GPIO_write(PORT_0, PIN7 , PIN_IS_HIGH);\
+							}\
+							}while(0)
 
 
 #endif /* FREERTOS_CONFIG_H */

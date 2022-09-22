@@ -5,6 +5,7 @@
 .\bin\heap_2.o: F:\keil_529\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\bin\heap_2.o: .\FreeRTOSConfig.h
 .\bin\heap_2.o: F:\keil_529\Keil_v5\ARM\INC\Philips\lpc21xx.h
+.\bin\heap_2.o: .\Starter_Files_V1\Starter_Files_V1\header\GPIO.h
 .\bin\heap_2.o: ..\..\Source\include\projdefs.h
 .\bin\heap_2.o: ..\..\Source\include\portable.h
 .\bin\heap_2.o: ..\..\Source\include\deprecated_definitions.h

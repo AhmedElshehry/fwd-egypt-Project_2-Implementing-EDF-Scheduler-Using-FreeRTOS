@@ -49,8 +49,6 @@ void GPIO_init(void)
 		}
 	}
 }
-
-
 pinState_t GPIO_read(portX_t PortName, pinX_t pinNum)
 {
 	pinState_t state;

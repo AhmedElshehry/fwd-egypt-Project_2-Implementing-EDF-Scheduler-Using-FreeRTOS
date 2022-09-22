@@ -6,6 +6,7 @@
 .\bin\main.o: F:\keil_529\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\bin\main.o: .\FreeRTOSConfig.h
 .\bin\main.o: F:\keil_529\Keil_v5\ARM\INC\Philips\lpc21xx.h
+.\bin\main.o: .\Starter_Files_V1\Starter_Files_V1\header\GPIO.h
 .\bin\main.o: ..\..\Source\include\projdefs.h
 .\bin\main.o: ..\..\Source\include\portable.h
 .\bin\main.o: ..\..\Source\include\deprecated_definitions.h
@@ -14,6 +15,5 @@
 .\bin\main.o: ..\..\Source\include\task.h
 .\bin\main.o: ..\..\Source\include\list.h
 .\bin\main.o: .\Starter_Files_V1\Starter_Files_V1\header\serial.h
-.\bin\main.o: .\Starter_Files_V1\Starter_Files_V1\header\GPIO.h
 .\bin\main.o: ..\..\Source\include\semphr.h
 .\bin\main.o: ..\..\Source\include\queue.h

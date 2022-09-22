@@ -6,6 +6,7 @@
 .\bin\queue.o: F:\keil_529\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\bin\queue.o: .\FreeRTOSConfig.h
 .\bin\queue.o: F:\keil_529\Keil_v5\ARM\INC\Philips\lpc21xx.h
+.\bin\queue.o: .\Starter_Files_V1\Starter_Files_V1\header\GPIO.h
 .\bin\queue.o: ..\..\Source\include\projdefs.h
 .\bin\queue.o: ..\..\Source\include\portable.h
 .\bin\queue.o: ..\..\Source\include\deprecated_definitions.h
